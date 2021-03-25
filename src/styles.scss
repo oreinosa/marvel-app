@@ -1,1 +1,79 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$marvel-app-primary: mat-palette($mat-blue-grey, 800);
+$marvel-app-accent: mat-palette($mat-red, 700);
+
+// The warn palette is optional (defaults to red).
+$marvel-app-warn: mat-palette($mat-amber);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$marvel-app-theme: mat-light-theme(
+  (
+    color: (
+      primary: $marvel-app-primary,
+      accent: $marvel-app-accent,
+      warn: $marvel-app-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($marvel-app-theme);
+
+// Export theme colors
+$primary: mat-color($marvel-app-primary);
+$accent: mat-color($marvel-app-accent);
+$warn: mat-color($marvel-app-warn);
+
+/* make changes to the !default Bootstrap variables */
+$grid-breakpoints: (
+  xs: 0,
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+  xl: 1920px,
+);
+/* finally, import Bootstrap to set the changes! */
+@import "~bootstrap/scss/bootstrap";
+
+@import "~animate.css/animate";
+@import "~angular-notifier/styles";
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.primary-bg {
+  background-color: $primary;
+  color: white;
+}
+.accent-bg {
+  background-color: $accent;
+  color: white;
+}
+.warn-bg {
+  background-color: $warn;
+  color: white;
+}
