@@ -1,1 +1,36 @@
-<p>toolbar works!</p>
+<mat-toolbar color="primary">
+  <div class='item logo-container' *ngIf='screenSize > 1'>
+    <a target="_blank" href='https://marvel.com' matTooltip='Go to marvel.com'>
+      <img src='/assets/marvel.png' id='marvel-logo'>
+    </a>
+  </div>
+  <div class="item links-container">
+    <ng-container *ngIf="screenSize < 4;else desktopView">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="toggleSidenav()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+    </ng-container>
+    <ng-template #desktopView>
+      <nav mat-tab-nav-bar backgroundColor="primary" #navbar>
+        <a mat-tab-link routerLink='/' routerLinkActive #rla="routerLinkActive" [active]="rla.isActive"
+          [routerLinkActiveOptions]="{exact:true}">
+          <mat-icon>home</mat-icon>
+          Home
+        </a>
+        <a mat-tab-link *ngFor="let link of links" [routerLink]='link.route' routerLinkActive #rla="routerLinkActive"
+          [active]="rla.isActive" [routerLinkActiveOptions]="{exact:false}">
+          <mat-icon>{{ link.icon }}</mat-icon>
+          {{ link.label }}
+        </a>
+      </nav>
+    </ng-template>
+  </div>
+  <div class="item actions-container">
+    <button mat-icon-button routerLink='/about' routerLinkActive='active'>
+      <mat-icon>info</mat-icon>
+    </button>
+    <button mat-icon-button routerLink='/bookmarks' routerLinkActive='active'>
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
