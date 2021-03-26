@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { HomeComponent } from './components/home/home.component';
@@ -20,7 +20,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 @NgModule({
   declarations: [HomeComponent, NavigationComponent, NotFoundComponent, FooterComponent, AboutComponent, SidenavComponent, ToolbarComponent],
   imports: [
-    CommonModule,
+    SharedModule,
     CoreRoutingModule,
     LayoutModule,
     MatToolbarModule,
