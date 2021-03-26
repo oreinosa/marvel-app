@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { Link } from 'src/app/shared/models/link';
+import { SetupService } from '../../setup.service';
 
 @Component({
   selector: 'app-navigation',
@@ -9,13 +9,15 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
+  links: Link[] = [
+    { label: "Characters", route: "/characters", icon: "groups" },
+    { label: "Comics", route: "/comics", icon: "auto_stories" },
+    { label: "Stories", route: "/stories", icon: "feed" },
+  ]
+  screenSize$: Observable<number>;
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
-
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private setupService: SetupService) {
+    this.screenSize$ = this.setupService.screenSizeObservable();
+  }
 
 }
