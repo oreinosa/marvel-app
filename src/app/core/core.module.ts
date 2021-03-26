@@ -10,10 +10,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { AboutComponent } from './components/about/about.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, NavigationComponent],
+  declarations: [HomeComponent, NavigationComponent, NotFoundComponent, FooterComponent, AboutComponent, SidenavComponent, ToolbarComponent],
   imports: [
     CommonModule,
     CoreRoutingModule,
@@ -23,6 +28,9 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatIconModule,
     MatListModule
+  ],
+  exports: [
+    NavigationComponent
   ]
 })
 export class CoreModule { }
