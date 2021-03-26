@@ -1,0 +1,56 @@
+#marvel-logo {
+  height: 56px;
+  cursor: pointer;
+}
+.mat-tab-link {
+  &.active {
+    opacity: 1;
+  }
+}
+.mat-icon-button {
+  &.active {
+    color: black;
+  }
+}
+.mat-icon {
+  margin-right: 5px;
+}
+.mat-toolbar {
+  height: auto;
+  flex-flow: row wrap;
+  justify-content: center;
+  a {
+    text-decoration: none;
+  }
+  .item {
+    padding-bottom: 5px;
+  }
+  .logo-container {
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .actions-container,
+  .links-container {
+    margin-left: auto;
+  }
+
+  @media all and (max-width: 1280px) {
+    .item {
+      padding-bottom: 0;
+    }
+    .links-container {
+      order: 1;
+      margin-right: auto;
+      margin-left: 0;
+    }
+    .logo-container {
+      order: 2;
+      flex-basis: auto;
+      margin-bottom: 0;
+    }
+    .actions-container {
+      order: 3;
+    }
+  }
+}
