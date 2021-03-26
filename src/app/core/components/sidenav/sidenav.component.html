@@ -1,1 +1,22 @@
-<p>sidenav works!</p>
+<mat-toolbar color='accent'>Menu</mat-toolbar>
+<mat-nav-list>
+  <a mat-list-item (click)='closeSidenav()' routerLink='/' routerLinkActive='active'
+    [routerLinkActiveOptions]="{exact:true}">
+    <mat-icon>home</mat-icon>
+    Home
+  </a>
+  <a mat-list-item (click)='closeSidenav()' *ngFor="let link of links" [routerLink]='link.route'
+    routerLinkActive='active'>
+    <mat-icon>{{ link.icon }}</mat-icon>
+    {{ link.label }}
+  </a>
+  <hr>
+  <a mat-list-item (click)='closeSidenav()' routerLink='bookmarks' routerLinkActive='active'>
+    <mat-icon>favorite</mat-icon>
+    Bookmarks
+  </a>
+  <a mat-list-item (click)='closeSidenav()' routerLink='about' routerLinkActive='active'>
+    <mat-icon>info</mat-icon>
+    About
+  </a>
+</mat-nav-list>
