@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Link } from 'src/app/shared/models/link';
 
 @Component({
   selector: 'app-footer',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-
+  @Input() screenSize: number = 0;
+  @Input() links: Link[] = [];
   constructor() { }
 
   ngOnInit(): void {
