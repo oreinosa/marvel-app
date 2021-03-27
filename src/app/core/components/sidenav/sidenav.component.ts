@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Link } from 'src/app/shared/models/link';
 
 @Component({
   selector: 'app-sidenav',
@@ -6,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent implements OnInit {
-  @Input() links = [];
+  @Input() links: Link[] = [];
   @Output('close') closeEmitter = new EventEmitter();
   constructor() { }
 
